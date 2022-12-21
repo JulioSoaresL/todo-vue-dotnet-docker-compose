@@ -3728,11 +3728,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Soares\\Documents\\Workspace\\todo_list\\todo-list\\todo-list\\todo-list.csproj",
+      "projectUniqueName": "C:\\Users\\Soares\\Documents\\Workspace\\todo_list\\todo-list\\todo-list\\backEnd\\todo-list.csproj",
       "projectName": "todo-list",
-      "projectPath": "C:\\Users\\Soares\\Documents\\Workspace\\todo_list\\todo-list\\todo-list\\todo-list.csproj",
+      "projectPath": "C:\\Users\\Soares\\Documents\\Workspace\\todo_list\\todo-list\\todo-list\\backEnd\\todo-list.csproj",
       "packagesPath": "C:\\Users\\Soares\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Soares\\Documents\\Workspace\\todo_list\\todo-list\\todo-list\\obj\\",
+      "outputPath": "C:\\Users\\Soares\\Documents\\Workspace\\todo_list\\todo-list\\todo-list\\backEnd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Soares\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  # todo-ui:
+  #   build: ./frontEnd
+  #   container_name: todo-ui
+  #   ports:
+  #     - 4200:80
+  #   links:
+  #     - todo-api
+  
+  todo-api:
+    build: ./backend
+    container_name: todo-api
+    ports:
+      - 8080:80
+    environment:
+      DB_CONNECTION_STRING: "Data Source=DESKTOP-CJ4PCSB;Initial Catalog=TodoApp;Integrated Security=True;Trust Server Certificate=true"
