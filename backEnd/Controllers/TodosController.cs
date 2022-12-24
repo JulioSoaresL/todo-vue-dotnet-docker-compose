@@ -30,10 +30,7 @@ public class TodosController : ControllerBase
     public async Task<ActionResult<Todo>> GetTodo(int id)
     {
         var todo = await _context.Todos.FindAsync(id);
-        if(todo == null)
-        {
-            return NotFound();
-        }
+        if(todo == null){ return NotFound(); }
         return todo;
     }
 

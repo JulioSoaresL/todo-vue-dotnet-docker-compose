@@ -1,6 +1,37 @@
 version: '3.8'
 
+networks:
+  webapi:
+
 services:
+  tasksdb:
+    container_name: todo-db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=password@123
+    networks:
+      - webapi
+    ports:
+      - 8001:1433
+
+  todo-api:
+    container_name: todo-api
+    image: ${DOCKER_REGISTRY-}todo-api
+    build: ./backEnd
+    networks:
+      - webapi
+    ports:
+      - 8002:80
+    environment:
+      - DB_HOST=tasksdb
+      - DB_NAME=todolist
+      - DB_SA_PASSWORD=password@123
+
+
+
+
+
   # todo-ui:
   #   build: ./frontEnd
   #   container_name: todo-ui
@@ -9,10 +40,10 @@ services:
   #   links:
   #     - todo-api
   
-  todo-api:
-    build: ./backend
-    container_name: todo-api
-    ports:
-      - 8080:80
-    environment:
-      DB_CONNECTION_STRING: "Data Source=DESKTOP-CJ4PCSB;Initial Catalog=TodoApp;Integrated Security=True;Trust Server Certificate=true"
+  # todo-api:
+  #   build: ./backend
+  #   container_name: todo-api
+  #   ports:
+  #     - 8080:80
+  #   environment:
+  #     DB_CONNECTION_STRING: "Data Source=DESKTOP-CJ4PCSB;Initial Catalog=TodoApp;Integrated Security=True;Trust Server Certificate=true"
