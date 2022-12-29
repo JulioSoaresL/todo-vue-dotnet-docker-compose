@@ -7,7 +7,7 @@ namespace todo_list.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("task_id")]
+        [Column("id")]
         public int Id { get; set; }
 
         [Column("title")]

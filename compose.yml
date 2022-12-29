@@ -1,32 +1,21 @@
 version: '3.8'
 
-networks:
-  webapi:
-
 services:
-  tasksdb:
-    container_name: todo-db
-    image: mcr.microsoft.com/mssql/server:2019-latest
-    environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=password@123
-    networks:
-      - webapi
+  db:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    container_name: db-container
     ports:
-      - 8001:1433
-
-  todo-api:
-    container_name: todo-api
-    image: ${DOCKER_REGISTRY-}todo-api
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "S3cur3P@ssW0rd!"
+      ACCEPT_EULA: "Y"
+  api:
+    container_name: api-container
     build: ./backEnd
-    networks:
-      - webapi
     ports:
-      - 8002:80
-    environment:
-      - DB_HOST=tasksdb
-      - DB_NAME=todolist
-      - DB_SA_PASSWORD=password@123
+      - "8080:80"
+    depends_on:
+      - db
 
 
 
